@@ -77,4 +77,7 @@ $(GOPATH)/bin/gometalinter lint:
 		GOARCH=$(subst x86_64,amd64,$(patsubst i%86,386,$(shell uname -m))) \
 		$(GO) get -u github.com/alecthomas/gometalinter
 
+docker-loong64:
+	docker build -t cr.loongnix.cn/justwatchcom/elasticsearch_exporter:1.1.0 .
+
 .PHONY: all style format build test vet tarball docker promu $(GOPATH)/bin/gometalinter lint
